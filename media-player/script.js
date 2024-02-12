@@ -21,7 +21,7 @@ let song_arr = [
         id: 4,
         name: "Dilbar"
     }
-];
+]; 
 
 
 for (const item of song_arr) {
