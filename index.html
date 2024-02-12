@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <script src="https://kit.fontawesome.com/b4ab1645bb.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div>
+    <div class="container">
         <ul id="all-songs"></ul>
+        
+        <input type="range" name="progress" id="progress">
+        <button id="backwardBtn"><i class="fa-solid fa-backward-step"></i></button>
+        <button id="playBtn"><i class="fa-solid fa-circle-play"></i></button>
+        <button id="forwardBtn"><i class="fa-solid fa-forward-step"></i></button>
     </div>
 
-    <input type="range" name="progress" id="progress">
-    <button id="backwardBtn"><i class="fa-solid fa-backward-step"></i></button>
-    <button id="playBtn"><i class="fa-solid fa-circle-play"></i></button>
-    <button id="forwardBtn"><i class="fa-solid fa-forward-step"></i></button>
-
-    <script src="/script.js"></script>    
+    <script src="./script.js"></script>    
 </body>
 </html>

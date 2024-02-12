@@ -7,19 +7,19 @@ let progress = document.getElementById("progress");
 let song_arr = [
     {
         id:1,
-        name:"song1"
+        name:"Aankhon Se Batana"
     },
     {
         id: 2,
-        name: "song2"
+        name: "Mi Amor"
     },
     {
         id: 3,
-        name: "song3"
+        name: "Tere Hawaale"
     },
     {
         id: 4,
-        name: "song4"
+        name: "Dilbar"
     }
 ];
 
