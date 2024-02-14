@@ -36,51 +36,83 @@ for (const item of song_arr) {
     li.appendChild(textSpan);
 
     song_list.appendChild(li); 
-
-
 }
 
+let isAudioPlaying = false;
+let audio;
+let currentSongIndex = 0;
 
-let audio = new Audio("./media/Aankhon Se Batana.mp3");
+//for first time song play on play btn click
+audio = new Audio(`./media/${song_arr[currentSongIndex].name}.mp3`);
 
 play.addEventListener("click",function(){
 
     if(audio.paused){
-        audio.play();
-        play.children[0].classList.remove("fa-circle-play");
-        play.children[0].classList.add("fa-circle-pause");
-
+        playSong();
     }
     else {
-        audio.pause();
-        play.children[0].classList.remove("fa-circle-pause");
-        play.children[0].classList.add("fa-circle-play");
-
+        pauseSong();
     }    
-});
-
-audio.addEventListener('timeupdate',function(){
-    progress.value = (audio.currentTime / audio.duration) * 100;
 });
 
 let songs = document.querySelectorAll(".song_li");
 
 songs.forEach(function(item){
     item.addEventListener("click",function(){
+        if (isAudioPlaying == true) {
+            pauseSong();
+        }
         // console.log(item.children[1].innerHTML);
         audio = new Audio(`./media/${item.children[1].innerHTML}.mp3`)
-        audio.play();
+        playSong();
+
     })
 });
 
 forward.addEventListener("click",function(){
+    if (isAudioPlaying == false){
+        currentSongIndex++;
+        audio = new Audio(`./media/${song_arr[currentSongIndex].name}.mp3`);
+        playSong();
 
-    // console.log(audio.src);
-
-
-
+    }else{
+        pauseSong();
+        currentSongIndex++;
+        audio = new Audio(`./media/${song_arr[currentSongIndex].name}.mp3`);
+        playSong();
+    }
+    console.log(currentSongIndex);
 });
 
 back.addEventListener("click", function () {
+    if (isAudioPlaying == false) {
+        currentSongIndex--;
+        audio = new Audio(`./media/${song_arr[currentSongIndex].name}.mp3`);
+        playSong();
 
+    } else {
+        pauseSong();
+        currentSongIndex--;
+        audio = new Audio(`./media/${song_arr[currentSongIndex].name}.mp3`);
+        playSong();
+    }
+    console.log(currentSongIndex);
 });
+
+function playSong(){
+    audio.play();
+    isAudioPlaying = true;
+    play.children[0].classList.remove("fa-circle-play");
+    play.children[0].classList.add("fa-circle-pause");
+
+    audio.addEventListener('timeupdate', function () {
+        progress.value = (audio.currentTime / audio.duration) * 100;
+    });
+}
+
+function pauseSong() {
+    audio.pause();
+    isAudioPlaying = false;
+    play.children[0].classList.remove("fa-circle-pause");
+    play.children[0].classList.add("fa-circle-play");
+}
