@@ -1,11 +1,14 @@
+
 .container{
     
     border: 10px solid rgb(0, 0, 0);
-    width: 26vw;
+    width: 50%;
+    /* width: 50%; */
     height: 90vh;
     margin: 20px auto;
     background-color: rgb(182, 255, 199);
     border-radius: 50px;
+    
 }
 
 li{
@@ -15,9 +18,7 @@ li{
 }
 
 .fa-music, .fa-volume-high{
-    padding: 50px;
-
-    /* margin-top: 20px; */
+    padding: 30px;    
 }
 
 
@@ -45,6 +46,58 @@ li{
 .allBtns{
     display: flex;
     justify-content: center;
+    
+}
+
+#all-songs{
+    display: flex;
+    flex-direction: column;
+
+}
+
+@media only screen and (min-width:300px) {
+    .container{
+        width: 34vw;
+    }
+
+    li {
+        font-size: 1em;
+    }
+}
+
+@media only screen and (min-width: 525px) {
+    .container{
+        width: 34vw;
+    }
+    li {
+        font-size: 1em;
+    }
+}
+
+@media only screen and (min-width: 727px) {
+    .container{
+        width: 30vw;
+    }
+    li {
+        font-size: 1em;
+    }
+    .fa-music, .fa-volume-high{
+        padding: 30px;    
+    }
+    
+}
+
+@media only screen and (min-width: 991px) {
+    .container{
+        width: 24vw;
+    }
+    li {
+        font-size: 1em;
+    }
+
+    .fa-music, .fa-volume-high{
+        padding: 40px;    
+    }
     
 }
 
